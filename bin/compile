@@ -65,13 +65,13 @@ else
 #  HOME=$build_dir gem install bootstrap-sass --user-install --no-rdoc --no-ri
    HOME=$build_dir gem install bundler --user-install --no-rdoc --no-ri
 fi
-
-HOME=$build_dir bundler install
+ 
 ####### Build the project's dependencies
 
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+bundler install
 
 ####### Create a Procfile if possible
 
