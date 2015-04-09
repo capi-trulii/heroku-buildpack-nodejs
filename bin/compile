@@ -52,18 +52,18 @@ fi
 install_npm
 
 head "Installing Bundler"
-export GEM_HOME=$build_dir/.gem/ruby/1.9.1
+export GEM_HOME=$build_dir/.gem/ruby/1.9.3
 PATH="$GEM_HOME/bin:$PATH"
 if test -d $cache_dir/ruby/.gem; then
   head "Restoring ruby gems directory from cache"
   cp -r $cache_dir/ruby/.gem $build_dir
-#  HOME=$build_dir gem update compass --user-install --no-rdoc --no-ri
-#  HOME=$build_dir gem update bootstrap-sass --user-install --no-rdoc --no-ri
-   HOME=$build_dir gem update bundler --user-install --no-rdoc --no-ri
+  HOME=$build_dir gem update compass --user-install --no-rdoc --no-ri
+  HOME=$build_dir gem update bootstrap-sass --user-install --no-rdoc --no-ri
+#   HOME=$build_dir gem update bundler --user-install --no-rdoc --no-ri
 else
-#  HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
-#  HOME=$build_dir gem install bootstrap-sass --user-install --no-rdoc --no-ri
-   HOME=$build_dir gem install bundler --user-install --no-rdoc --no-ri
+  HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
+  HOME=$build_dir gem install bootstrap-sass --user-install --no-rdoc --no-ri
+#   HOME=$build_dir gem install bundler --user-install --no-rdoc --no-ri
 fi
  
 ####### Build the project's dependencies
@@ -71,7 +71,7 @@ fi
 head "Building dependencies"
 cd $build_dir
 build_dependencies
-bundler install
+#bundler install
 
 ####### Create a Procfile if possible
 
